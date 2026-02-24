@@ -477,7 +477,9 @@
     .hero { padding-top: 6rem; }
   }
 
-/* Hero Image Styles */
+
+
+  /* Hero Image Styles */
 .hero {
   display: flex;
   justify-content: space-between; /* কন্টেন্ট বামে এবং ছবি ডানে রাখার জন্য */
@@ -485,8 +487,13 @@
 }
 
 .hero-image-container {
-  order: -1; /* এটি ছবিকে সবার উপরে পাঠিয়ে দেবে */
-    margin-bottom: 2rem;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeUp 0.8s 0.6s ease forwards;
+  opacity: 0;
 }
 
 .hero-img-wrapper {
@@ -497,7 +504,6 @@
   padding: 15px;
   position: relative;
   box-shadow: 0 0 50px rgba(0, 229, 255, 0.2);
-  margin-bottom: 10px;
 }
 
 /* গ্লোয়িং অ্যানিমেশন */
@@ -521,29 +527,21 @@
 
 /* মোবাইল রেসপন্সিভ */
 @media (max-width: 992px) {
-  
   .hero {
-    display: flex;
-    flex-direction: column; /* কন্টেন্টগুলো নিচে নিচে সাজাবে */
+    flex-direction: column-reverse; /* মোবাইলে ছবি উপরে চলে যাবে */
     text-align: center;
-    padding-top: 8rem;
+    padding-top: 10rem;
   }
-
-
-
-
   .hero-content {
-    order: 1;
+    margin-top: 3rem;
   }
   .hero-img-wrapper {
-    width: 220px; /* মোবাইলে ছবির সাইজ একটু ছোট করা হয়েছে */
-    height: 220px;
+    width: 250px;
+    height: 250px;
   }
   .hero-stats {
     position: static;
-    margin-top: 3rem;
+    margin-top: 2rem;
     justify-content: center;
-    order: 2; /* স্ট্যাটাসগুলো সবার শেষে দেখাবে */
   }
 }
-
